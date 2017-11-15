@@ -2,8 +2,16 @@ package fr.android.androidexercises;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 
-import timber.log.Timber;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Random;
+
 
 public class LibraryActivity extends AppCompatActivity {
 
@@ -12,20 +20,15 @@ public class LibraryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
 
-        // Plant logger cf. Android Timber
-        Timber.plant(new Timber.DebugTree());
+        //boolean isLandscape = getResources().getBoolean(R.bool.landscape);
 
-        // TODO build Retrofit
-
-        // TODO create a service
-
-        // TODO listBooks()
-
-        // TODO enqueue call and display book title
-
-        // TODO log books
-
-        // TODO display book as a list
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.containerFrameLayout, new BookListFragment(), "BookListFragment")
+                .commit();
     }
+
+
+
 
 }
