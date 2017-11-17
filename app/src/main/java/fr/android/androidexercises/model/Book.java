@@ -1,4 +1,4 @@
-package fr.android.androidexercises;
+package fr.android.androidexercises.model;
 
 public class Book {
 
