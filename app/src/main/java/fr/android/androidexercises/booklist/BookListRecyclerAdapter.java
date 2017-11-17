@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import fr.android.androidexercises.booklist.BookItemView;
 import fr.android.androidexercises.model.Book;
 
 
@@ -16,16 +15,16 @@ import fr.android.androidexercises.model.Book;
  * Created by damien on 15/11/2017.
  */
 public class BookListRecyclerAdapter extends RecyclerView.Adapter {
-    private BookListFragment bookListFragment;
+    private BookListFragment.BookListListener bookListListener;
     private final List<Book> collection;
     private final LayoutInflater inflater;
     private int resource;
 
-    public BookListRecyclerAdapter(BookListFragment bookListFragment,
+    public BookListRecyclerAdapter(BookListFragment.BookListListener bookListListener,
                                    LayoutInflater inflater,
                                    List<Book> collection,
                                    int resource) {
-        this.bookListFragment = bookListFragment;
+        this.bookListListener = bookListListener;
         this.collection = collection;
         this.inflater = inflater;
         this.resource = resource;
@@ -45,7 +44,7 @@ public class BookListRecyclerAdapter extends RecyclerView.Adapter {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bookListFragment.onClickOnListItem();
+                bookListListener.onClickOnListItem();
             }
         });
     }

@@ -41,7 +41,7 @@ public class BookListFragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.setAdapter(new BookListRecyclerAdapter(
-                this,
+                listener,
                 inflater,
                 getBooks(),
                 R.layout.book_list_item

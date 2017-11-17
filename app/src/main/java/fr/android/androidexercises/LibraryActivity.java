@@ -29,7 +29,7 @@ public class LibraryActivity extends AppCompatActivity implements BookListFragme
         getSupportFragmentManager()
                 .beginTransaction()
                 //.replace(R.id.mainContainer, new BookListFragment(), "BookListFragment")
-                .replace(R.id.containerFrameLayout, new BookDetailFragment(), "BookDetailFragment")
+                .replace(R.id.mainContainer, new BookDetailFragment(), "BookDetailFragment")
                 .commit();
     }
 }
