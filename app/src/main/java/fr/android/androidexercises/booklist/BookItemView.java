@@ -1,10 +1,13 @@
-package fr.android.androidexercises;
+package fr.android.androidexercises.booklist;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import fr.android.androidexercises.R;
+import fr.android.androidexercises.model.Book;
 
 public class BookItemView extends LinearLayout {
     private TextView name;

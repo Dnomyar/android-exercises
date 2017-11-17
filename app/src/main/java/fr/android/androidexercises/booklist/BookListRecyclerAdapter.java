@@ -1,4 +1,4 @@
-package fr.android.androidexercises;
+package fr.android.androidexercises.booklist;
 
 
 import android.support.v7.widget.RecyclerView;
@@ -8,16 +8,24 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import fr.android.androidexercises.booklist.BookItemView;
+import fr.android.androidexercises.model.Book;
+
 
 /**
  * Created by damien on 15/11/2017.
  */
-public class RecyclerAdapter extends RecyclerView.Adapter {
+public class BookListRecyclerAdapter extends RecyclerView.Adapter {
+    private BookListFragment bookListFragment;
     private final List<Book> collection;
     private final LayoutInflater inflater;
     private int resource;
 
-    public RecyclerAdapter(LayoutInflater inflater, List<Book> collection, int resource) {
+    public BookListRecyclerAdapter(BookListFragment bookListFragment,
+                                   LayoutInflater inflater,
+                                   List<Book> collection,
+                                   int resource) {
+        this.bookListFragment = bookListFragment;
         this.collection = collection;
         this.inflater = inflater;
         this.resource = resource;
@@ -30,7 +38,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ((BookItemView)holder.itemView).bind(this.collection.get(position));
+        BookItemView itemView = (BookItemView) holder.itemView;
+        itemView.bind(this.collection.get(position));
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bookListFragment.onClickOnListItem();
+            }
+        });
     }
 
     @Override

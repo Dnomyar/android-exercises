@@ -2,18 +2,12 @@ package fr.android.androidexercises;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Random;
+import fr.android.androidexercises.bookdetail.BookDetailFragment;
+import fr.android.androidexercises.booklist.BookListFragment;
 
 
-public class LibraryActivity extends AppCompatActivity {
+public class LibraryActivity extends AppCompatActivity implements BookListFragment.BookListListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +18,18 @@ public class LibraryActivity extends AppCompatActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.containerFrameLayout, new BookListFragment(), "BookListFragment")
+                .replace(R.id.mainContainer, new BookListFragment(), "BookListFragment")
+                //.replace(R.id.containerFrameLayout, new BookDetailFragment(), "BookDetailFragment")
                 .commit();
     }
 
 
-
-
+    @Override
+    public void onClickOnListItem() {
+        getSupportFragmentManager()
+                .beginTransaction()
+                //.replace(R.id.mainContainer, new BookListFragment(), "BookListFragment")
+                .replace(R.id.containerFrameLayout, new BookDetailFragment(), "BookDetailFragment")
+                .commit();
+    }
 }
