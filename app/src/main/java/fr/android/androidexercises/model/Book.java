@@ -1,6 +1,9 @@
 package fr.android.androidexercises.model;
 
-public class Book {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Book implements Parcelable {
 
     private String isbn;
     private String title;
@@ -10,6 +13,16 @@ public class Book {
     public Book(String title, String isbn) {
         this.title = title;
         this.isbn = isbn;
+    }
+
+    public Book(Parcel in) {
+        String[] data = new String[4];
+
+        in.readStringArray(data);
+        this.isbn = data[0];
+        this.title = data[1];
+        this.price = data[2];
+        this.cover = data[2];
     }
 
     public String getIsbn() {
@@ -59,4 +72,29 @@ public class Book {
     public int hashCode() {
         return isbn.hashCode();
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeStringArray(new String[] {
+                this.isbn,
+                this.title,
+                this.price,
+                this.cover
+        });
+    }
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public Book createFromParcel(Parcel in) {
+            return new Book(in);
+        }
+
+        public Book[] newArray(int size) {
+            return new Book[size];
+        }
+    };
 }

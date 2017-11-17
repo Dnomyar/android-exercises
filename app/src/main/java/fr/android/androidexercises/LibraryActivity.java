@@ -1,10 +1,12 @@
 package fr.android.androidexercises;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import fr.android.androidexercises.bookdetail.BookDetailFragment;
 import fr.android.androidexercises.booklist.BookListFragment;
+import fr.android.androidexercises.model.Book;
 
 
 public class LibraryActivity extends AppCompatActivity implements BookListFragment.BookListListener {
@@ -19,18 +21,29 @@ public class LibraryActivity extends AppCompatActivity implements BookListFragme
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.mainContainer, new BookListFragment(), "BookListFragment")
-                //.replace(R.id.containerFrameLayout, new BookDetailFragment(), "BookDetailFragment")
                 .commit();
     }
 
 
     @Override
-    public void onClickOnListItem() {
-        getSupportFragmentManager()
-                .beginTransaction()
-                //.replace(R.id.mainContainer, new BookListFragment(), "BookListFragment")
-                .replace(R.id.mainContainer, new BookDetailFragment(), "BookDetailFragment")
+    public void onClickOnListItem(Book book) {
+
+        FragmentTransaction transaction = getSupportFragmentManager()
+                .beginTransaction();
+
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("book", book);
+
+        BookDetailFragment fragment = new BookDetailFragment();
+
+        fragment.setArguments(bundle);
+
+        transaction
+                .replace(R.id.mainContainer, fragment, "BookDetailFragment")
                 .addToBackStack(null)
                 .commit();
+
+
+
     }
 }

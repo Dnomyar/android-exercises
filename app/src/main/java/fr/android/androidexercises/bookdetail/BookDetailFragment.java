@@ -1,17 +1,15 @@
 package fr.android.androidexercises.bookdetail;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import fr.android.androidexercises.R;
+import fr.android.androidexercises.model.Book;
 
 /**
  * Created by damien on 15/11/2017.
@@ -20,8 +18,23 @@ import fr.android.androidexercises.R;
 public class BookDetailFragment extends Fragment {
 
     @Override
+    public void setArguments(Bundle args) {
+        super.setArguments(args);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.book_detail, container, false);
+        View view = inflater.inflate(R.layout.book_detail, container, false);
+
+        TextView bookDescription = view.findViewById(R.id.bookDescription);
+
+        Bundle arguments = this.getArguments();
+
+        Book book = arguments.getParcelable("book");
+
+        bookDescription.setText(book.getTitle());
+
+        return view;
     }
 
 }

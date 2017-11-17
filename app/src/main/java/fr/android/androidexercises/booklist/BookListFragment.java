@@ -66,6 +66,6 @@ public class BookListFragment extends Fragment {
 
 
     public interface BookListListener {
-        void onClickOnListItem();
+        void onClickOnListItem(Book book);
     }
 }
