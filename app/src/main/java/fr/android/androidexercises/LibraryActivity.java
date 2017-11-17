@@ -30,6 +30,7 @@ public class LibraryActivity extends AppCompatActivity implements BookListFragme
                 .beginTransaction()
                 //.replace(R.id.mainContainer, new BookListFragment(), "BookListFragment")
                 .replace(R.id.mainContainer, new BookDetailFragment(), "BookDetailFragment")
+                .addToBackStack(null)
                 .commit();
     }
 }
