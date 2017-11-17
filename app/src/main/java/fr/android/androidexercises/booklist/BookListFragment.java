@@ -51,11 +51,6 @@ public class BookListFragment extends Fragment {
         return view;
     }
 
-    public void onClickOnListItem(){
-        this.listener.onClickOnListItem();
-    }
-
-
 
     private List<Book> getBooks() {
         Random random = new Random();
