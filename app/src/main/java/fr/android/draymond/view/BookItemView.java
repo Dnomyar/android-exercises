@@ -13,10 +13,6 @@ import fr.android.draymond.R;
 import fr.android.draymond.model.Book;
 
 public class BookItemView extends LinearLayout {
-    private TextView title;
-    private TextView price;
-    private TextView description;
-    private TextView isbn;
 
     public BookItemView(Context context) {
         this(context, null);
