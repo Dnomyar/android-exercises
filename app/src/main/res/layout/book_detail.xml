@@ -7,42 +7,45 @@
     android:paddingRight="16dp">
 
 
-    <!--
-        TODO : add a scroll view
-    -->
-
-
-    <ImageView
-        android:id="@+id/bookCoverImage"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/bookTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Book title"
-        android:textSize="24sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/bookPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="16€" />
+            <TextView
+                android:id="@+id/bookTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pas de livre de selectionné"
+                android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/bookDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="A great synopsis lmazkd azmdk mj mk zalk lmrkmleknr kjeb rglkerr lkj r kjle rlk jber lkj belkrjgbelkrj bglkjeb r   rg klerglk jber lkjb e rlkj belkrjg blke jbrglk ergbkj erlgkgjb"
-        android:paddingVertical="20dp"
-        />
 
-    <TextView
-        android:id="@+id/bookISBN"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ISBN : 1-56619-909-3" />
+            <TextView
+                android:id="@+id/bookPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/bookCoverImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/bookDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="20dp" />
+
+            <TextView
+                android:id="@+id/bookISBN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
