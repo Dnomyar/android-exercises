@@ -14,6 +14,7 @@ import android.widget.Toast;
 import java.util.LinkedList;
 import java.util.List;
 
+import fr.android.androidexercises.Logger;
 import fr.android.androidexercises.persistence.HenriPotierService;
 import fr.android.androidexercises.persistence.HenriPotierServiceFactory;
 import fr.android.androidexercises.R;
@@ -31,6 +32,9 @@ public class BookListFragment extends Fragment {
     private BookListListener listener;
     private HenriPotierService henriPotierService;
     private List<Book> books = new LinkedList<>();
+
+    private Logger logger = new Logger();
+
 
     @Override
     public void onAttach(Context context) {
@@ -73,12 +77,14 @@ public class BookListFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<Book>> call, Throwable t) {
-                showEnableToGetBooksError();
+                showEnableToGetBooksError(t);
             }
         });
     }
 
-    private void showEnableToGetBooksError() {
+    private void showEnableToGetBooksError(Throwable t) {
+        logger.error(t);
+
         Toast.makeText(
                 (Context) listener,
                 "An error occurred while getting books 😕",
@@ -87,6 +93,7 @@ public class BookListFragment extends Fragment {
     }
 
     private void updateBookList(Response<List<Book>> response, BookListRecyclerAdapter adapter) {
+        logger.info("Got books");
         books.clear();
         books.addAll(response.body());
         adapter.notifyDataSetChanged();

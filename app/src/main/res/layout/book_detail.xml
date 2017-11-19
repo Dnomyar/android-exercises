@@ -35,7 +35,7 @@
         android:id="@+id/bookDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="A great description lmazkd azmdk mj mk zalk lmrkmleknr kjeb rglkerr lkj r kjle rlk jber lkj belkrjgbelkrj bglkjeb r   rg klerglk jber lkjb e rlkj belkrjg blke jbrglk ergbkj erlgkgjb"
+        android:text="A great synopsis lmazkd azmdk mj mk zalk lmrkmleknr kjeb rglkerr lkj r kjle rlk jber lkj belkrjgbelkrj bglkjeb r   rg klerglk jber lkjb e rlkj belkrjg blke jbrglk ergbkj erlgkgjb"
         android:paddingVertical="20dp"
         />
 
