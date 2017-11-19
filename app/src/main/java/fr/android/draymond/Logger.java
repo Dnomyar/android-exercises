@@ -1,4 +1,4 @@
-package fr.android.androidexercises;
+package fr.android.draymond;
 
 import timber.log.Timber;
 

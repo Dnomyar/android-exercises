@@ -1,16 +1,14 @@
-package fr.android.androidexercises.view;
+package fr.android.draymond.view;
 
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import java.util.List;
 
-import fr.android.androidexercises.model.Book;
+import fr.android.draymond.model.Book;
 
 
 /**

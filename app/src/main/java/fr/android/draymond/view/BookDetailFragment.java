@@ -1,4 +1,4 @@
-package fr.android.androidexercises.view;
+package fr.android.draymond.view;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import fr.android.androidexercises.R;
-import fr.android.androidexercises.model.Book;
+import fr.android.draymond.R;
+import fr.android.draymond.model.Book;
 
 /**
  * Created by damien on 15/11/2017.

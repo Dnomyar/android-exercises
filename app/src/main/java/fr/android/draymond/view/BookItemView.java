@@ -1,4 +1,4 @@
-package fr.android.androidexercises.view;
+package fr.android.draymond.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import fr.android.androidexercises.R;
-import fr.android.androidexercises.model.Book;
+import fr.android.draymond.R;
+import fr.android.draymond.model.Book;
 
 public class BookItemView extends LinearLayout {
     private TextView title;

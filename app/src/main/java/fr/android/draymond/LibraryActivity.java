@@ -1,13 +1,13 @@
-package fr.android.androidexercises;
+package fr.android.draymond;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
-import fr.android.androidexercises.view.BookDetailFragment;
-import fr.android.androidexercises.view.BookListFragment;
-import fr.android.androidexercises.model.Book;
+import fr.android.draymond.view.BookDetailFragment;
+import fr.android.draymond.view.BookListFragment;
+import fr.android.draymond.model.Book;
 
 
 public class LibraryActivity extends AppCompatActivity implements BookListFragment.BookListListener {

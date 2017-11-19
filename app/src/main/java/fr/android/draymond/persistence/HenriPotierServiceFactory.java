@@ -1,4 +1,4 @@
-package fr.android.androidexercises.persistence;
+package fr.android.draymond.persistence;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

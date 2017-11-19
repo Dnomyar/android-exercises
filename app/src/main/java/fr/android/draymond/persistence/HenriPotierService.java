@@ -1,8 +1,8 @@
-package fr.android.androidexercises.persistence;
+package fr.android.draymond.persistence;
 
 import java.util.List;
 
-import fr.android.androidexercises.model.Book;
+import fr.android.draymond.model.Book;
 import retrofit2.Call;
 import retrofit2.http.GET;
 

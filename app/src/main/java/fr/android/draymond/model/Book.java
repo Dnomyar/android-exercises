@@ -1,4 +1,4 @@
-package fr.android.androidexercises.model;
+package fr.android.draymond.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

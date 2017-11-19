@@ -1,4 +1,4 @@
-package fr.android.androidexercises.view;
+package fr.android.draymond.view;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,11 +14,11 @@ import android.widget.Toast;
 import java.util.LinkedList;
 import java.util.List;
 
-import fr.android.androidexercises.Logger;
-import fr.android.androidexercises.persistence.HenriPotierService;
-import fr.android.androidexercises.persistence.HenriPotierServiceFactory;
-import fr.android.androidexercises.R;
-import fr.android.androidexercises.model.Book;
+import fr.android.draymond.Logger;
+import fr.android.draymond.persistence.HenriPotierService;
+import fr.android.draymond.persistence.HenriPotierServiceFactory;
+import fr.android.draymond.R;
+import fr.android.draymond.model.Book;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
