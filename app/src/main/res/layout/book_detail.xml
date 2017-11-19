@@ -6,6 +6,12 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp">
 
+
+    <!--
+        TODO : add a scroll view
+    -->
+
+
     <ImageView
         android:id="@+id/bookCoverImage"
         android:layout_width="match_parent"
