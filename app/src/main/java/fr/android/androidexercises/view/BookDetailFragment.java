@@ -46,7 +46,8 @@ public class BookDetailFragment extends Fragment {
         bookTitle.setText(book.getTitle());
 
         TextView bookDescription = view.findViewById(R.id.bookDescription);
-        bookDescription.setText(book.getDescription());
+        String synopsis = book.getSynopsis().size() > 1 ? book.getSynopsis().get(0) : "No synopsis";
+        bookDescription.setText(synopsis);
 
         TextView bookPrice = view.findViewById(R.id.bookPrice);
         bookPrice.setText(getString(R.string.currency, book.getPrice()));

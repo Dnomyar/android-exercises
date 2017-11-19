@@ -3,31 +3,36 @@ package fr.android.androidexercises.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.LinkedList;
+import java.util.List;
+
+
 public class Book implements Parcelable {
 
     private String isbn;
     private String title;
     private String price;
     private String cover;
-    private String description;
+    private List<String> synopsis;
 
-    public Book(String isbn, String title, String price, String cover, String description) {
+    public Book(String isbn, String title, String price, String cover, List<String> synopsis) {
         this.isbn = isbn;
         this.title = title;
         this.price = price;
         this.cover = cover;
-        this.description = description;
+        this.synopsis = synopsis;
     }
 
     public Book(Parcel in) {
         String[] data = new String[5];
 
         in.readStringArray(data);
-        this.isbn = data[0];
-        this.title = data[1];
-        this.price = data[2];
-        this.cover = data[3];
-        this.description = data[4];
+        this.isbn = in.readString();
+        this.title = in.readString();
+        this.price = in.readString();
+        this.cover = in.readString();
+        this.synopsis = new LinkedList<>();
+        in.readStringList(this.synopsis);
     }
 
     public String getIsbn() {
@@ -46,8 +51,8 @@ public class Book implements Parcelable {
         return cover;
     }
 
-    public String getDescription() {
-        return description;
+    public List<String> getSynopsis() {
+        return synopsis;
     }
 
     @Override
@@ -73,13 +78,11 @@ public class Book implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeStringArray(new String[] {
-                this.isbn,
-                this.title,
-                this.price,
-                this.cover,
-                this.description
-        });
+        dest.writeString(this.isbn);
+        dest.writeString(this.title);
+        dest.writeString(this.price);
+        dest.writeString(this.cover);
+        dest.writeStringList(this.synopsis);
     }
 
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
