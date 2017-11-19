@@ -1,15 +1,15 @@
-package fr.android.androidexercises.booklist;
+package fr.android.androidexercises.view;
 
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import java.util.List;
 
-import fr.android.androidexercises.R;
 import fr.android.androidexercises.model.Book;
 
 
@@ -18,16 +18,16 @@ import fr.android.androidexercises.model.Book;
  */
 public class BookListRecyclerAdapter extends RecyclerView.Adapter {
     private BookListFragment.BookListListener bookListListener;
-    private final List<Book> collection;
+    private final List<Book> books;
     private final LayoutInflater inflater;
     private int resource;
 
     public BookListRecyclerAdapter(BookListFragment.BookListListener bookListListener,
                                    LayoutInflater inflater,
-                                   List<Book> collection,
+                                   List<Book> books,
                                    int resource) {
         this.bookListListener = bookListListener;
-        this.collection = collection;
+        this.books = books;
         this.inflater = inflater;
         this.resource = resource;
     }
@@ -39,23 +39,23 @@ public class BookListRecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        BookItemView itemView = (BookItemView) holder.itemView;
-        itemView.bind(this.collection.get(position));
 
+        final Book book = this.books.get(position);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TextView titleTextView = v.findViewById(R.id.nameTextView);
-                Book book = new Book(titleTextView.getText().toString(), null);
-                bookListListener.onClickOnListItem(book);
-            }
-        });
+        ((BookItemView) holder.itemView)
+                .bind(book)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        bookListListener.onClickOnListItem(book);
+                    }
+                });
+
     }
 
     @Override
     public int getItemCount() {
-        return collection.size();
+        return books.size();
     }
 
     private class ViewHolder extends RecyclerView.ViewHolder {

@@ -9,52 +9,45 @@ public class Book implements Parcelable {
     private String title;
     private String price;
     private String cover;
+    private String description;
 
-    public Book(String title, String isbn) {
-        this.title = title;
+    public Book(String isbn, String title, String price, String cover, String description) {
         this.isbn = isbn;
+        this.title = title;
+        this.price = price;
+        this.cover = cover;
+        this.description = description;
     }
 
     public Book(Parcel in) {
-        String[] data = new String[4];
+        String[] data = new String[5];
 
         in.readStringArray(data);
         this.isbn = data[0];
         this.title = data[1];
         this.price = data[2];
-        this.cover = data[2];
+        this.cover = data[3];
+        this.description = data[4];
     }
 
     public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
     public String getCover() {
         return cover;
     }
 
-    public void setCover(String cover) {
-        this.cover = cover;
+    public String getDescription() {
+        return description;
     }
 
     @Override
@@ -84,7 +77,8 @@ public class Book implements Parcelable {
                 this.isbn,
                 this.title,
                 this.price,
-                this.cover
+                this.cover,
+                this.description
         });
     }
 

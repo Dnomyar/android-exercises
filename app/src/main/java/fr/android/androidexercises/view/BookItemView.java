@@ -1,4 +1,4 @@
-package fr.android.androidexercises.booklist;
+package fr.android.androidexercises.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -10,8 +10,10 @@ import fr.android.androidexercises.R;
 import fr.android.androidexercises.model.Book;
 
 public class BookItemView extends LinearLayout {
-    private TextView name;
+    private TextView title;
     private TextView price;
+    private TextView description;
+    private TextView isbn;
 
     public BookItemView(Context context) {
         this(context, null);
@@ -25,16 +27,9 @@ public class BookItemView extends LinearLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-        name = findViewById(R.id.nameTextView);
-        price = findViewById(R.id.priceTextView);
-    }
 
     public View bind(Book book) {
-        name.setText(book.getTitle());
-        price.setText(String.valueOf(book.getPrice()));
+        ((TextView)findViewById(R.id.bookIemTitleTextView)).setText(book.getTitle());
 
         return this;
     }

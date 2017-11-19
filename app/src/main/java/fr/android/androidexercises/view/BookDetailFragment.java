@@ -1,4 +1,4 @@
-package fr.android.androidexercises.bookdetail;
+package fr.android.androidexercises.view;
 
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -26,6 +26,12 @@ public class BookDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.book_detail, container, false);
 
+        fillBookDetailView(view);
+
+        return view;
+    }
+
+    private void fillBookDetailView(View view) {
         TextView bookDescription = view.findViewById(R.id.bookDescription);
 
         Bundle arguments = this.getArguments();
@@ -33,8 +39,6 @@ public class BookDetailFragment extends Fragment {
         Book book = arguments.getParcelable("book");
 
         bookDescription.setText(book.getTitle());
-
-        return view;
     }
 
 }

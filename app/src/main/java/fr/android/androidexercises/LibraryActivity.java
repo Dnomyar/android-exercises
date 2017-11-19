@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
-import fr.android.androidexercises.bookdetail.BookDetailFragment;
-import fr.android.androidexercises.booklist.BookListFragment;
+import fr.android.androidexercises.view.BookDetailFragment;
+import fr.android.androidexercises.view.BookListFragment;
 import fr.android.androidexercises.model.Book;
 
 
