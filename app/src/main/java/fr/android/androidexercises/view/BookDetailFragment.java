@@ -29,8 +29,11 @@ public class BookDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.book_detail, container, false);
 
         Bundle arguments = this.getArguments();
-        Book book = arguments.getParcelable("book");
-        fillBookDetailView(view, book);
+        // A book can not be selected yet
+        if(null != arguments){
+            Book book = arguments.getParcelable("book");
+            fillBookDetailView(view, book);
+        }
 
         return view;
     }

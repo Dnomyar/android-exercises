@@ -7,15 +7,17 @@
     android:orientation="horizontal">
 
     <FrameLayout
-        android:id="@+id/bookListFrame2"
-        android:layout_width="match_parent"
+        android:id="@+id/bookListFrame"
         android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_width="0dp"
         tools:context=".LibraryActivity"/>
 
     <FrameLayout
         android:id="@+id/bookDetailFrame"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_width="0dp"
         tools:context=".LibraryActivity"/>
 
 </LinearLayout>

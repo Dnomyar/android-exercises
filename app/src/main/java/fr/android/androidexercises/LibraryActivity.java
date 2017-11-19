@@ -13,6 +13,8 @@ import fr.android.androidexercises.model.Book;
 public class LibraryActivity extends AppCompatActivity implements BookListFragment.BookListListener {
 
     private Logger logger = new Logger();
+    private boolean isLandscape;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,30 +22,36 @@ public class LibraryActivity extends AppCompatActivity implements BookListFragme
 
         logger.info("Starting App !");
 
-        boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+        isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
 
         logger.info("Is landscape : %s", isLandscape);
 
 
-//        if (isLandscape){
-//            setContentView(R.layout.vertical_activity_library);
-//        } else {
-            setContentView(R.layout.vertical_activity_library);
-//        }
+        if (isLandscape){
+            setUpLandscapeMode();
+            return;
+        }
 
-        FragmentTransaction transaction = getSupportFragmentManager()
-                .beginTransaction();
+        setUpProtraitMode();
 
+    }
 
-        FragmentTransaction bookListFragment = transaction
-                .replace(R.id.bookListFrame, new BookListFragment(), "BookListFragment");
+    private void setUpProtraitMode(){
+        setContentView(R.layout.vertical_activity_library);
 
-//        if (isLandscape){
-//            bookListFragment = transaction
-//                    .replace(R.id.bookDetailFrame, new BookListFragment(), "BookListFragment");
-//        }
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.bookListFrame, new BookListFragment(), "BookListFragment")
+                .commit();
+    }
 
-        bookListFragment
+    private void setUpLandscapeMode(){
+        setContentView(R.layout.horizontal_activity_library);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.bookListFrame, new BookListFragment(), "BookListFragment")
+                .replace(R.id.bookDetailFrame, new BookDetailFragment(), "BookDetailFragment")
                 .commit();
     }
 
@@ -62,8 +70,10 @@ public class LibraryActivity extends AppCompatActivity implements BookListFragme
 
         fragment.setArguments(bundle);
 
+        int frameId = isLandscape ? R.id.bookDetailFrame : R.id.bookListFrame;
+
         transaction
-                .replace(R.id.bookListFrame, fragment, "BookDetailFragment")
+                .replace(frameId, fragment, "BookDetailFragment")
                 .addToBackStack(null)
                 .commit();
 
