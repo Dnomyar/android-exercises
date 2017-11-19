@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Library</string>
+    <string name="app_name">draymond</string>
     <string name="action_settings">Settings</string>
+    <string name="currency">%s €</string>
+    <string name="isbn">ISBN : %s</string>
+    <string name="book_cover">Book cover</string>
 </resources>
